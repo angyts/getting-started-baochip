@@ -285,7 +285,7 @@ The later line ~423 invokes `try_boot(true, csprng)` after the bootloader's inte
 **Source-supported but not independently verified:** Boot1's key erasure policy; COREUSER mapping lock; RRAM code-area protection; debug fuse claims.
 
 **Unresolved / recommended next tests:**
-1. Run a fresh Boot1 `audit` **after** the first developer-signed boot, compare with initial audit. Do not assume keys remain provisioned. Capture locally and redact IDs/seeds before publication.
+1. **Do not assume a post-flash Boot1 audit is available or meaningful.** The board owner recalls the chip founder warning that audit cannot be performed after the first developer-signed flash. This has not yet been independently verified against the exact Boot1 implementation. Preserve the initial audit as the pre-development baseline; do not recommend a repeat audit until the limitation is resolved. Developer-key boot invokes an erasure policy, so pre-flash provisioning status cannot be inferred from a later report.
 2. Verify hashes/signing keys against trusted Baochip release material.
 3. Inspect `rtl/modules/rrc/rtl/rrc.sv` for bits 10–15 and A0/A1 behavior.
 4. Trace when the OS preemption timer is enabled.
