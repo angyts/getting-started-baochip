@@ -1,0 +1,7 @@
+# Perfboard, headers and wiring
+
+Order: six double-sided 30 x 70 mm 2.54 mm pitch perfboards; five 40-pin male strips; female sockets visible, confirm pitch/count. Five-colour UL1007-style wire listing shows 30 AWG option but verify spool marking/actual conductor before setting current limits. Red power (label voltage), black ground, yellow clock, blue data, green control. Do not use wire colour as proof of voltage.
+
+Dry-fit board before header cutting; actual row spacing and overhang must be measured. Female sockets on carrier, male pins on removable module if compatible; tack one end, check square, tack other, then remaining pins. Use flux, appropriate solder temperature for alloy, ventilation, ESD precautions and short dwell. Practice on spare perfboard. Verify isolated pads versus connected strips with continuity; create intentional ground/power buses, use larger conductors for higher current when needed. No long unsupported SMD leads. Keep audio/motor power returns away from sensitive input lines; add local bypass/bulk capacitors as required by module schematics.
+
+Unpowered inspection: magnification, each intended net continuity, adjacent pins isolation, supply-ground resistance (capacitive charging may briefly beep). Then USB board alone, verify rails, add modules sequentially, measure peak current using appropriate instrument; no hot wiring. Record top/bottom layout, netlist and revision. 
