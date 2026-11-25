@@ -1,0 +1,7 @@
+# Haptic feedback
+
+DRV2605L breakout and five adhesive 1027 coin motors. Motor seller advertises 11000 +/- 2500 rpm; likely ERM (rotating eccentric mass), nominal voltage, winding resistance, startup/stall current and duty rating unknown. Do not infer them from 1027 size code. Obtain supplier spec before energizing. 
+
+[TI DRV2605L datasheet SLOS854D](https://www.ti.com/lit/ds/symlink/drv2605l.pdf), [TI product and application notes](https://www.ti.com/product/DRV2605L). IC supply 2–5.2 V, I2C, on-chip waveform library, ERM/LRA modes, calibration and diagnostics. Breakout regulator/pull-ups/EN/trigger routing may differ; inspect both sides and measure pull-up rail. Typical 7-bit address 0x5A; verify with read-only probe. Connect one motor across differential OUT+/OUT-, not to ground. Do not parallel motors or drive with bare GPIO. No external MOSFET needed for normal driver use.
+
+Firmware register roadmap (verify against sections 8.5–8.6): status 0x00, mode 0x01, library 0x03, waveform slots 0x04–0x0B, GO 0x0C, rated voltage 0x16, overdrive clamp 0x17, feedback 0x1A. Configure ERM and motor-specific ratings before calibration/playback; do not copy generic LRA defaults. Read identity/status, configure, run bounded calibration after secure mounting, check diagnostic result, play short low-energy effect, stop on timeout. Avoid OTP programming. Record startup current, rail sag, motor temperature and vibration strength. Distinct warning patterns may aid UX but must not replace display/physical confirmation. 
