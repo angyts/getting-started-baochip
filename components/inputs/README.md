@@ -1,0 +1,7 @@
+# Physical input
+
+Five-way switch: seller describes 7–7.5 mm SMD navigation switch, selected 6 mm height, five pieces. Photo shows six apparent terminals; exact manufacturer and contact layout unknown. Do not assume common terminal or direction mapping. With no power, label terminals A–F, measure every pair at rest and for up/down/left/right/center; record any simultaneous closures. Use a breakout or mechanically secured fine wires; avoid relying on solder joints to withstand joystick force.
+
+TS-1088-AR02016: [LCSC C720477](https://www.lcsc.com/product-detail/tactile%20switches_xunpu_ts-1088-ar02016_C720477.html), [datasheet link](https://www.lcsc.com/datasheet/lcsc_datasheet_2304140030_XUNPU-TS-1088-AR02016_C720477.pdf). Distributor gives normally-open SPST, 3.9 x 3 x 2 mm, 1.6 N, 12 V / 50 mA contact rating, 100k cycles. Exact datasheet not independently reviewed. Two terminals, no polarity. Fifty ordered; two intended for back/confirm.
+
+Typical active-low input: GPIO with verified pull-up to its logic rail, switch to GND. Start with 10k external pull-up if internal pull-up unavailable; verify thresholds. Debounce in software, e.g. 20 ms stable state initially, adjust from tests. Require release then fresh press after prompt ready, reject simultaneous or stuck inputs, no repeat-to-confirm, no host-injected approval. Test bounce, long hold, reset while held, disconnect, and all directions. SMD pads do not necessarily fit 2.54 mm perfboard; use adapter or strain-relieved wiring.
