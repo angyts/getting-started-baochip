@@ -308,3 +308,9 @@ grep -n -B 3 -A 5 '<name>timer0</name>' utralib/bao1x/*.svd
 ```
 
 **Safety:** Never run `self_destruct`, `lockdown`, unreviewed `ifr` commands, or direct RRAM register writes as casual experiments. No part of this notebook requires them.
+
+
+## Baochip peripheral guide
+
+A plain-English guide to the Baochip-1x peripheral documentation is now available in [`peripherals/`](peripherals/README.md). It explains BIO, GPIO/pin muxing, uDMA, I²C, UART, SPI, I²S, SDIO/camera, ADC, PWM, clocks and safety sensors, with links back to the official register reference and source chapters.
+
